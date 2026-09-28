@@ -1,8 +1,18 @@
 import type { NextConfig } from "next";
-const config: NextConfig = {
+
+const nextConfig: NextConfig = {
   output: "export",
+
+  // GitHub Pages repository path
+  basePath: process.env.PAGES_BASE_PATH || "",
+
+  // Helps routes like /projects work correctly on static hosting
   trailingSlash: true,
-  images: { unoptimized: true },
-  poweredByHeader: false,
+
+  // Required if you use next/image on a static export
+  images: {
+    unoptimized: true,
+  },
 };
-export default config;
+
+export default nextConfig;
