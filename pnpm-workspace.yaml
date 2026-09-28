@@ -1,0 +1,3 @@
+enableModulesDir: true
+lockfileOnly: false
+nodeLinker: isolated

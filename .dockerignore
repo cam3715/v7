@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+.git
+.env*
+api/.env*
+api/bin
+test-results
+playwright-report

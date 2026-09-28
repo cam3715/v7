@@ -1,0 +1,411 @@
+/* Isolated liquid-glass navigation + theme toggle. */
+
+/* ---------------- Navigation ---------------- */
+.nav {
+  position: relative !important;
+  isolation: isolate;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 !important;
+  width: clamp(360px, 39vw, 500px);
+  padding: 6px !important;
+  overflow: visible !important;
+}
+
+.nav > a {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  padding: 10px 12px !important;
+  text-align: center;
+  white-space: nowrap;
+  background: transparent !important;
+  box-shadow: none !important;
+  transition:
+    color 220ms ease,
+    transform 220ms ease !important;
+}
+
+.nav > a:hover {
+  transform: translateY(-1px);
+}
+
+.nav > a[aria-current="page"] {
+  color: #fff !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.pill {
+  position: absolute;
+  z-index: 3;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  width: calc((100% - 12px) / 4);
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  transition: transform 620ms cubic-bezier(0.22, 1.22, 0.36, 1);
+  will-change: transform;
+}
+
+.at0 {
+  transform: translate3d(0%, 0, 0);
+}
+
+.at1 {
+  transform: translate3d(100%, 0, 0);
+}
+
+.at2 {
+  transform: translate3d(200%, 0, 0);
+}
+
+.at3 {
+  transform: translate3d(300%, 0, 0);
+}
+
+/* Soft colored mass underneath the crisp glass. */
+.gooLayer {
+  position: absolute;
+  inset: -5px -8px;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(5px) contrast(1.32) saturate(1.15);
+  opacity: 0.78;
+}
+
+.gooCore,
+.gooDrop {
+  position: absolute;
+  border-radius: 999px;
+  background: rgba(100, 137, 87, 0.7);
+}
+
+.gooCore {
+  inset: 7px 9px;
+}
+
+.gooDrop {
+  top: 21%;
+  width: 36%;
+  height: 58%;
+  opacity: 0;
+}
+
+.flowRight .gooDrop {
+  left: -4%;
+  transform-origin: right center;
+  animation: gooTrailRight 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.flowLeft .gooDrop {
+  right: -4%;
+  transform-origin: left center;
+  animation: gooTrailLeft 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.pillSurface {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 24% 4%, rgba(255, 255, 255, 0.58), transparent 34%),
+    linear-gradient(135deg, rgba(78, 107, 82, 0.78), rgba(27, 43, 32, 0.94));
+  box-shadow:
+    0 9px 24px rgba(15, 29, 19, 0.28),
+    inset 0 1px 1px rgba(255, 255, 255, 0.68),
+    inset 0 -12px 20px rgba(5, 17, 9, 0.2);
+  backdrop-filter: blur(14px) saturate(170%);
+  -webkit-backdrop-filter: blur(14px) saturate(170%);
+  transform: translateZ(0);
+  will-change: transform, border-radius;
+}
+
+.pillSurface.flowRight {
+  transform-origin: right center;
+  animation: liquidMorphRight 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.pillSurface.flowLeft {
+  transform-origin: left center;
+  animation: liquidMorphLeft 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.pillRefraction {
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(255, 255, 255, 0.36), transparent 28%),
+    radial-gradient(circle at 76% 76%, rgba(196, 233, 178, 0.22), transparent 34%);
+  pointer-events: none;
+}
+
+.pillShine {
+  position: absolute;
+  width: 42%;
+  height: 185%;
+  left: -58%;
+  top: -42%;
+  border-radius: 50%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.9),
+    transparent
+  );
+  filter: blur(1px);
+  opacity: 0;
+  pointer-events: none;
+  animation: glassShine 620ms ease-out both;
+}
+
+@keyframes liquidMorphRight {
+  0% {
+    transform: scaleX(1) scaleY(1) skewX(0deg);
+    border-radius: 999px;
+  }
+  24% {
+    transform: scaleX(1.55) scaleY(0.84) skewX(-4deg);
+    border-radius: 50% 66% 66% 50% / 48% 58% 58% 48%;
+  }
+  58% {
+    transform: scaleX(1.16) scaleY(0.94) skewX(2deg);
+    border-radius: 58% 48% 48% 58% / 52% 46% 46% 52%;
+  }
+  82% {
+    transform: scaleX(0.93) scaleY(1.08) skewX(0deg);
+  }
+  100% {
+    transform: scaleX(1) scaleY(1) skewX(0deg);
+    border-radius: 999px;
+  }
+}
+
+@keyframes liquidMorphLeft {
+  0% {
+    transform: scaleX(1) scaleY(1) skewX(0deg);
+    border-radius: 999px;
+  }
+  24% {
+    transform: scaleX(1.55) scaleY(0.84) skewX(4deg);
+    border-radius: 66% 50% 50% 66% / 58% 48% 48% 58%;
+  }
+  58% {
+    transform: scaleX(1.16) scaleY(0.94) skewX(-2deg);
+    border-radius: 48% 58% 58% 48% / 46% 52% 52% 46%;
+  }
+  82% {
+    transform: scaleX(0.93) scaleY(1.08) skewX(0deg);
+  }
+  100% {
+    transform: scaleX(1) scaleY(1) skewX(0deg);
+    border-radius: 999px;
+  }
+}
+
+@keyframes gooTrailRight {
+  0% {
+    opacity: 0;
+    transform: translateX(28%) scaleX(0.3) scaleY(0.8);
+  }
+  28% {
+    opacity: 0.82;
+    transform: translateX(-12%) scaleX(1.5) scaleY(0.92);
+  }
+  62% {
+    opacity: 0.44;
+    transform: translateX(-52%) scaleX(1.02) scaleY(0.74);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-92%) scaleX(0.25) scaleY(0.62);
+  }
+}
+
+@keyframes gooTrailLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-28%) scaleX(0.3) scaleY(0.8);
+  }
+  28% {
+    opacity: 0.82;
+    transform: translateX(12%) scaleX(1.5) scaleY(0.92);
+  }
+  62% {
+    opacity: 0.44;
+    transform: translateX(52%) scaleX(1.02) scaleY(0.74);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(92%) scaleX(0.25) scaleY(0.62);
+  }
+}
+
+@keyframes glassShine {
+  0% {
+    opacity: 0;
+    transform: translateX(0%);
+  }
+  18% {
+    opacity: 0.9;
+  }
+  72% {
+    opacity: 0.36;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(410%);
+  }
+}
+
+:global(html[data-theme="dark"]) .pillSurface {
+  border-color: rgba(255, 255, 255, 0.65);
+  background:
+    radial-gradient(circle at 24% 4%, rgba(255, 255, 255, 0.78), transparent 34%),
+    linear-gradient(135deg, rgba(246, 249, 244, 0.98), rgba(201, 214, 202, 0.9));
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.36),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9),
+    inset 0 -12px 20px rgba(65, 83, 69, 0.11);
+}
+
+:global(html[data-theme="dark"]) .gooCore,
+:global(html[data-theme="dark"]) .gooDrop {
+  background: rgba(222, 235, 218, 0.64);
+}
+
+:global(html[data-theme="dark"]) .nav > a[aria-current="page"] {
+  color: #172019 !important;
+}
+
+
+/* ---------------- Responsive navigation ---------------- */
+@media (max-width: 1180px) and (min-width: 761px) {
+  .nav {
+    width: clamp(310px, 38vw, 420px);
+    padding: 5px !important;
+  }
+
+  .nav > a {
+    padding: 9px 9px !important;
+    font-size: 12px !important;
+  }
+
+  .pill {
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    width: calc((100% - 10px) / 4);
+  }
+}
+
+@media (max-width: 920px) and (min-width: 761px) {
+  .nav {
+    width: clamp(292px, 40vw, 340px);
+  }
+
+  .nav > a {
+    padding-inline: 7px !important;
+    font-size: 11px !important;
+  }
+
+  .gooLayer {
+    inset: -4px -6px;
+  }
+}
+
+/* Restore the project's original mobile pattern: navigation becomes a bottom dock. */
+@media (max-width: 760px) {
+  .nav {
+    position: fixed !important;
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: max(14px, env(safe-area-inset-bottom)) !important;
+    z-index: 60 !important;
+    width: min(calc(100vw - 24px), 430px);
+    max-width: none !important;
+    padding: 5px !important;
+    transform: translateX(-50%) !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-radius: 999px !important;
+    overflow: visible !important;
+  }
+
+  .nav > a {
+    min-height: 44px;
+    padding: 9px 6px !important;
+    font-size: 11px !important;
+    line-height: 1;
+  }
+
+  .nav > a:hover {
+    transform: none;
+  }
+
+  .pill {
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    width: calc((100% - 10px) / 4);
+  }
+
+  .gooLayer {
+    inset: -4px -5px;
+    filter: blur(4px) contrast(1.25) saturate(1.12);
+  }
+
+  .pillSurface {
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+  }
+}
+
+@media (max-width: 430px) {
+  .nav {
+    width: calc(100vw - 16px);
+    bottom: max(9px, env(safe-area-inset-bottom)) !important;
+    padding: 4px !important;
+  }
+
+  .nav > a {
+    min-height: 42px;
+    padding: 8px 3px !important;
+    font-size: 10.5px !important;
+  }
+
+  .pill {
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    width: calc((100% - 8px) / 4);
+  }
+
+  .gooLayer {
+    inset: -3px -4px;
+  }
+}
+
+@media (max-width: 340px) {
+  .nav {
+    width: calc(100vw - 10px);
+  }
+
+  .nav > a {
+    font-size: 9.5px !important;
+    letter-spacing: -0.01em;
+  }
+}
+
+@media print {
+  .nav {
+    display: none !important;
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "profile": {
+    "name": "Chaitanya Meshram",
+    "initials": "CM",
+    "location": "Pune, India",
+    "email": "chaitanyameshram07@gmail.com",
+    "github": "https://github.com/cam3715",
+    "role": "Backend-focused fullstack engineer",
+    "statement": "Reliable backends. Intelligent experiences.",
+    "bio": "I work across backend APIs, AI-assisted research and search indexing. I enjoy connecting the work behind the interface to the experience people use.",
+    "languages": ["Python", ".NET", "Go", "Java", "React", "Vue"],
+    "revision": "cam-2026-09-27-v2"
+  },
+  "work": [
+    {
+      "id": "mobile-apis",
+      "kind": "Team experience",
+      "title": "The systems behind the screen.",
+      "shortTitle": "Mobile backend APIs",
+      "category": "Backend",
+      "number": "01",
+      "accent": "blue",
+      "subtitle": "Mobile team \u00b7 Backend API design",
+      "summary": "Backend API design for the mobile team, connecting application experiences to the services behind them.",
+      "focus": [
+        "Backend API design",
+        "Mobile application integration",
+        "Service interfaces"
+      ],
+      "context": "A mobile experience relies on backend services that give the application a clear way to request and exchange data.",
+      "contribution": "Worked on backend API design for the mobile team.",
+      "boundary": "The public summary covers my area of contribution. Internal endpoints, system topology and operational metrics are not published.",
+      "takeaway": "My focus in this area: the service interfaces behind mobile experiences.",
+      "tags": ["Backend", "APIs", "Mobile"],
+      "visual": [
+        "Mobile experience",
+        "Service interfaces",
+        "Backend API design"
+      ],
+      "links": [],
+      "features": [],
+      "linkNote": "Public product link not supplied."
+    },
+    {
+      "id": "plume",
+      "kind": "Team experience",
+      "title": "From research to a working draft.",
+      "shortTitle": "Plume \u00b7 GenAI",
+      "category": "AI & Search",
+      "number": "02",
+      "accent": "violet",
+      "subtitle": "GenAI team \u00b7 Research & drafting",
+      "summary": "Work on Plume, an AI-based product for creating research articles and drafts.",
+      "focus": [
+        "GenAI product development",
+        "Research article creation",
+        "AI-assisted drafting"
+      ],
+      "context": "Plume brings AI into the process of creating research articles and drafts.",
+      "contribution": "Worked with the GenAI team on Plume's research article and draft creation product.",
+      "boundary": "The implementation details, model providers and evaluation results have not been shared here. This page describes the product area, not an internal architecture.",
+      "takeaway": "My focus in this area: applying AI to a concrete research and writing workflow.",
+      "tags": ["GenAI", "Research", "Drafting"],
+      "visual": ["Research articles", "AI-powered product", "Draft creation"],
+      "links": [],
+      "features": [],
+      "linkNote": "Public product link not supplied."
+    },
+    {
+      "id": "professional-indexer",
+      "kind": "Team experience",
+      "title": "Make information discoverable.",
+      "shortTitle": "Professional Indexer",
+      "category": "AI & Search",
+      "number": "03",
+      "accent": "green",
+      "subtitle": "Indexer team \u00b7 Solr & vector indexing",
+      "summary": "Work with the Professional Indexer team on Solr indexing and vector indexing.",
+      "focus": ["Solr indexing", "Vector indexing", "Search infrastructure"],
+      "context": "Search depends on how information is prepared and indexed. Keyword and vector indexes provide different ways to make information discoverable.",
+      "contribution": "Worked on Solr indexing and vector indexing in the Professional Indexer team.",
+      "boundary": "Index sizes, embedding models, retrieval quality and production performance are not stated because those details have not been verified for publication.",
+      "takeaway": "My focus in this area: the indexing work that supports search experiences.",
+      "tags": ["Solr", "Vector indexing", "Search"],
+      "visual": ["Information", "Solr indexes", "Vector indexes"],
+      "links": [],
+      "features": [],
+      "linkNote": "Public product link not supplied."
+    },
+    {
+      "id": "retrospective-board",
+      "kind": "Project",
+      "title": "A shared space for better retros.",
+      "shortTitle": "Retrospective Board for Teams",
+      "category": "Fullstack",
+      "number": "04",
+      "accent": "peach",
+      "subtitle": "2025 \u00b7 Python / FastAPI / Vue",
+      "summary": "A collaborative board for sprint feedback, with WebSocket updates keeping the team's view in sync.",
+      "focus": [
+        "Python & FastAPI",
+        "Vue interfaces",
+        "WebSocket event streaming"
+      ],
+      "context": "Teams need a shared place to collect and discuss sprint feedback without repeatedly refreshing their view.",
+      "contribution": "Built a collaborative retrospective board with a modular Vue interface and Python FastAPI services. WebSocket event streaming synchronizes updates.",
+      "boundary": "This project is described in my r\u00e9sum\u00e9. A public repository or live-demo URL has not been supplied.",
+      "takeaway": "The project connects backend events with collaborative frontend interactions.",
+      "tags": ["Python", "FastAPI", "Vue", "WebSockets"],
+      "visual": ["Vue board", "FastAPI services", "WebSocket updates"],
+      "links": [],
+      "features": [
+        "Collaborative sprint analysis and feedback collection",
+        "Python FastAPI backend services",
+        "WebSocket event streaming for synchronized updates",
+        "Modular Vue.js frontend for distributed teams"
+      ],
+      "linkNote": "No public repository or demo link supplied."
+    },
+    {
+      "id": "code-editor",
+      "kind": "Project",
+      "title": "Code together, in the same moment.",
+      "shortTitle": "CodeCollab \u00b7 Real-Time Collaborative Code Editor",
+      "category": "Fullstack",
+      "number": "05",
+      "accent": "blue",
+      "subtitle": "2024 \u00b7 MERN / Socket.IO",
+      "summary": "A multiuser code editor using Socket.IO to synchronize editing across browser sessions.",
+      "focus": ["React interface", "MERN stack", "Socket.IO synchronization"],
+      "context": "Collaborative editing needs a way to share changes between participants as they work.",
+      "contribution": "Built a multiuser, cross-browser collaborative code editor with the MERN stack and Socket.IO real-time synchronization.",
+      "boundary": "The repository is available under my current GitHub account. No public live-demo URL or performance benchmark is supplied.",
+      "takeaway": "The project brings frontend interactions and real-time backend communication together.",
+      "tags": ["React", "Node.js", "Socket.IO", "MERN"],
+      "visual": ["Browser editors", "Socket.IO events", "Shared session"],
+      "links": [
+        {
+          "label": "View GitHub repository",
+          "url": "https://github.com/cam3715/CodeCollab"
+        }
+      ],
+      "features": [
+        "Multi-user collaborative code editing",
+        "Cross-browser editing sessions",
+        "Real-time synchronization with Socket.IO",
+        "MERN stack: MongoDB, Express, React and Node.js"
+      ],
+      "linkNote": ""
+    }
+  ],
+  "resources": [
+    {
+      "label": "Java & DSA Certificate",
+      "url": "https://drive.google.com/file/d/1tUzzXX-rJB7aqcPYFvCXoVn-OVIpIw4j/view"
+    },
+    {
+      "label": "Java & Networking Certificate",
+      "url": "https://drive.google.com/file/d/1WULoeEhegZYW5R4VcQsOwmq-CAJELsJm/view"
+    },
+    {
+      "label": "Badminton Club \u00b7 Certificate",
+      "url": "https://drive.google.com/file/d/1sr5N2MGRGv0LcAMQ-64ujvYkY1JJtKBt/view?usp=sharing"
+    },
+    {
+      "label": "Arambh Community \u00b7 Gallery",
+      "url": "https://linktr.ee/aarambh_iiitp?lt_utm_source=lt_admin_share_link#374457173"
+    }
+  ]
+}
